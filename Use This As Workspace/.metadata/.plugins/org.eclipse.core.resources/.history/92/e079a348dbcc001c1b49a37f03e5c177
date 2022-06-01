@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="997.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableController">
+   <children>
+      <Pane fx:id="paneSchedule" layoutX="132.0" prefHeight="624.0" prefWidth="865.0" visible="false">
+         <children>
+            <TableView fx:id="tblSchedule" layoutY="100.0" prefHeight="524.0" prefWidth="865.0">
+              <columns>
+                <TableColumn fx:id="colEmpID" prefWidth="133.0" text="Employee ID" />
+                <TableColumn fx:id="colFirst" prefWidth="148.0" text="First Name" />
+                  <TableColumn fx:id="colLast" prefWidth="148.0" text="Last Name" />
+                  <TableColumn fx:id="colStart" prefWidth="139.5" text="Start Time" />
+                  <TableColumn fx:id="colEnd" prefWidth="139.5" text="End Time" />
+                  <TableColumn fx:id="colDay" prefWidth="154.0" text="Day" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane id="sidepanel" prefHeight="624.0" prefWidth="132.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnInventory" layoutY="167.0" mnemonicParsing="false" onAction="#btnInventoryClick" prefHeight="60.0" prefWidth="132.0" text="Inventory" textFill="#007ef9">
+               <font>
+                  <Font name="Nirmala UI Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSchedule" layoutY="227.0" mnemonicParsing="false" onAction="#btnScheduleClick" prefHeight="60.0" prefWidth="132.0" text="Schedule" textFill="#007ef9">
+               <font>
+                  <Font name="Nirmala UI Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRecipes" layoutY="287.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="132.0" text="Recipes" textFill="#007ef9">
+               <font>
+                  <Font name="Nirmala UI Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnInvoices" layoutY="347.0" mnemonicParsing="false" onAction="#btnInvoicesClick" prefHeight="60.0" prefWidth="132.0" text="Invoices" textFill="#007ef9">
+               <font>
+                  <Font name="Nirmala UI Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSettings" layoutY="563.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="132.0" text="Settings" textFill="#007ef9">
+               <font>
+                  <Font name="Nirmala UI Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="imgProfilePicture" fitHeight="60.0" fitWidth="60.0" layoutX="36.0" layoutY="25.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../Hohenadel,%20Nathan%20-%20Keystone/Use%20This%20As%20Workspace/Keystone/src/TempPicture.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblUsername" layoutX="37.0" layoutY="92.0" text="User Name" textFill="#009c95" />
+         </children>
+      </Pane>
+      <Pane id="anchor" fx:id="paneInvoices" layoutX="132.0" layoutY="164.0" prefHeight="460.0" prefWidth="865.0" visible="false">
+         <children>
+            <TableView fx:id="tblInvoices" layoutY="-66.0" prefHeight="524.0" prefWidth="865.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colInvNumber" prefWidth="103.0" text="Invoice Number" />
+                <TableColumn fx:id="colInvComp" prefWidth="74.0" text="Company" />
+                  <TableColumn fx:id="colInvDate" prefWidth="71.0" text="Ship Date" />
+                  <TableColumn fx:id="colInvItemID" prefWidth="86.0" text="Item ID" />
+                  <TableColumn fx:id="colInvQuantity" prefWidth="59.0" text="Quantity" />
+                  <TableColumn fx:id="colInvDesc" prefWidth="270.0" text="Item Description" />
+                  <TableColumn fx:id="colInvWeight" minWidth="0.0" prefWidth="56.0" text="Weight" />
+                  <TableColumn fx:id="colInvPrice" prefWidth="54.0" text="Price" />
+                  <TableColumn fx:id="colInvCost" prefWidth="91.0" text="Invoice Cost" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane id="MainPane" fx:id="paneInventory" layoutX="132.0" prefHeight="624.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TableView id="tblInv" fx:id="tblInventory" layoutY="100.0" prefHeight="524.0" prefWidth="865.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colItemCode" prefWidth="134.0" resizable="false" text="Item Code" />
+                <TableColumn fx:id="colItemDesc" prefWidth="492.0" resizable="false" text="Item Description" />
+                  <TableColumn fx:id="colItemCost" minWidth="0.0" prefWidth="134.0" resizable="false" text="Item Cost" />
+                  <TableColumn fx:id="colItemQuantity" prefWidth="104.0" resizable="false" text="Quantity" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

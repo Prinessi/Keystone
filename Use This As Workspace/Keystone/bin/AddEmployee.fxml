@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="anchor" fx:id="paneAddInvoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="807.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EmployeeController">
+   <children>
+      <Button fx:id="btnSubmit" layoutX="693.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnSubmitInvoiceClick" text="Add Employees" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+      <Button fx:id="btnAddLine" layoutX="12.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnAddLineClick" prefHeight="25.0" prefWidth="74.0" text="Add Line" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="12.0" />
+      <Button fx:id="btnRemoveLine" layoutX="98.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnRemoveLineClick" prefHeight="25.0" prefWidth="136.0" text="Remove Selected Line" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="98.0" />
+      <TableView fx:id="tblEmployee" layoutX="23.0" layoutY="77.0" prefHeight="342.0" prefWidth="783.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+         <columns>
+            <TableColumn fx:id="colEmployeeFirst" prefWidth="261.0" text="First Name" />
+            <TableColumn fx:id="colEmployeeLast" prefWidth="261.0" text="Last Name" />
+            <TableColumn fx:id="colPhoneNumber" prefWidth="261.0" text="Phone Number" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

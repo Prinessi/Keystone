@@ -1,0 +1,20 @@
+package application;
+
+public class InvoiceModel {
+	String InvCompany, InvDate, InvItemId, InvDesc;
+	Integer InvNumber;
+	Double InvQuantity, InvWeight, InvPrice, InvCost;
+	
+	public InvoiceModel(String InvCompany, String InvDate, String InvItemId, String InvDesc, Integer InvNumber, 
+			Double InvQuantity, Double InvWeight, Double InvPrice, Double InvCost) {
+		this.InvCompany = InvCompany;
+		this.InvDate = InvDate;
+		this.InvItemId = InvItemId;
+		this.InvDesc = InvDesc;
+		this.InvNumber = InvNumber;
+		this.InvQuantity = InvQuantity;
+		this.InvWeight = InvWeight;
+		this.InvPrice = InvPrice;
+		this.InvCost = InvCost;
+	}
+}

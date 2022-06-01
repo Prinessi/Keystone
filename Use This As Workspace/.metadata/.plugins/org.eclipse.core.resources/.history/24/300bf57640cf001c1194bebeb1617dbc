@@ -1,0 +1,15 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+
+public class EmployeeController implements Initializable{
+	// Buttons
+		@FXML
+		private Button btnAddLine;
+		@FXML
+		private Button btnSubmit;
+		@FXML
+		private Button btnRemoveLine;
+}

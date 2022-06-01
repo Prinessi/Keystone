@@ -1,0 +1,7 @@
+package application;
+
+public class InvoiceModel {
+	String InvCompany, InvDate, InvItemId, InvDesc;
+	Integer InvNumber;
+	Double InvQuantity, InvWeight, InvPrice, InvCost;
+}

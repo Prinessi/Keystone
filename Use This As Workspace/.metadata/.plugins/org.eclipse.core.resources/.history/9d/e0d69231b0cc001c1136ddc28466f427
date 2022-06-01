@@ -1,0 +1,243 @@
+package application;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class EditScheduleController implements Initializable {
+	@FXML
+	private TextArea schedEditComments;
+	@FXML
+	private TableView<ScheduleModel> tblSchedEditSample;
+	@FXML
+	private TableColumn<ScheduleModel, String> schedEditShiftID;
+	@FXML
+	private TableColumn<ScheduleModel, String> schedEditStart;
+	@FXML
+	private TableColumn<ScheduleModel, String> schedEditEnd;
+	@FXML
+	private ChoiceBox<String> schedEditNewStart;
+	@FXML
+	private ChoiceBox<String> schedEditNewEnd;
+	@FXML
+	private TextField schedEditGetID;
+	@FXML
+	private Button btnSchedEditSubmit;
+	@FXML
+	private Button btnSchedEditDelete;
+	
+	ObservableList<ScheduleModel> slist = FXCollections.observableArrayList();
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		/*
+		try {
+			Connection con = DBConnector.getConnection();
+			
+			// Result sets to hold SQL Queries
+			ResultSet rsSched = con.createStatement().executeQuery("select * from paysched");
+			
+			while(rsSched.next()) {
+				slist.add(new ScheduleModel(rsSched.getString("empID"), rsSched.getString("day"), rsSched.getString("shiftStart"), 
+						rsSched.getString("shiftEnd"), rsSched.getString("comments"), rsSched.getInt("shiftID"), rsSched.getDouble("wage"), rsSched.getDouble("shiftCost")));
+				
+				schedEditShiftID.setCellValueFactory(new PropertyValueFactory<>("shiftID"));
+				schedEditStart.setCellValueFactory(new PropertyValueFactory<>("shiftStart"));
+				schedEditEnd.setCellValueFactory(new PropertyValueFactory<>("shiftEnd"));
+						
+				tblSchedEditSample.setItems(slist);
+			}		
+			con.close();
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+		
+		// Fill Choice Boxes
+		String am1 = "1:00am", am2 = "2:00am", am3 = "3:00am", am4 = "4:00am", am5 = "5:00am", am6 = "6:00am", am7 = "7:00am", 
+				am8 = "8:00am", am9 = "9:00am", am10 = "10:00am", am11 = "11:00am", am12 = "12:00pm", pm1 = "1:00pm", pm2 = "2:00pm", 
+				pm3 = "3:00pm", pm4 = "4:00pm", pm5 = "5:00pm", pm6 = "6:00pm", pm7 ="7:00pm", pm8 = "8:00pm", pm9 = "9:00pm", 
+				pm10 = "10:00pm", pm11 = "11:00pm", pm12 = "12:00am";
+		// Add the choices into an array so we can just import the array into both of the choice boxes, since they will show the same values.
+		String[] choices = {am1, am2, am3, am4, am5, am6, am7, am8, am9, am10, am11, am12, pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm9, pm10, pm11, pm12};
+		
+		// Add items to the choice boxes
+		schedEditNewStart.getItems().addAll(choices);
+		schedEditNewEnd.getItems().addAll(choices);
+		*/
+	}
+	
+	public void handleSchedEditSubmitButton(ActionEvent event) {
+		String shiftID = schedEditGetID.getText();
+		String startChoice = "";
+		String endChoice = "";
+		String comments = schedEditComments.getText();
+		
+		// Must add additional :00 for seconds and get rid of the AM or PM at the end of the string for mySQL time stamp.
+		// Get rid of extra values for startChoice and add :00
+		switch (schedEditNewStart.getValue()) {
+		case "1:00am": startChoice = "1:00";
+		break;
+		case "2:00am": startChoice = "2:00";
+		break;
+		case "3:00am": startChoice = "3:00";
+		break;
+		case "4:00am": startChoice = "4:00";
+		break;
+		case "5:00am": startChoice = "5:00";
+		break;
+		case "6:00am": startChoice = "6:00";
+		break;
+		case "7:00am": startChoice = "7:00";
+		break;
+		case "8:00am": startChoice = "8:00";
+		break;
+		case "9:00am": startChoice = "9:00";
+		break;
+		case "10:00am": startChoice = "10:00";
+		break;
+		case "11:00am": startChoice = "11:00";
+		break;
+		case "12:00pm": startChoice = "12:00";
+		break;
+		case "1:00pm": startChoice = "13:00";
+		break;
+		case "2:00pm": startChoice = "14:00";
+		break;
+		case "3:00pm": startChoice = "15:00";
+		break;
+		case "4:00pm": startChoice = "16:00";
+		break;
+		case "5:00pm": startChoice = "17:00";
+		break;
+		case "6:00pm": startChoice = "18:00";
+		break;
+		case "7:00pm": startChoice = "19:00";
+		break;
+		case "8:00pm": startChoice = "20:00";
+		break;
+		case "9:00pm": startChoice = "21:00";
+		break;
+		case "10:00pm": startChoice = "22:00";
+		break;
+		case "11:00pm": startChoice = "23:00";
+		break;
+		case "12:00am": startChoice = "24:00";
+		break;
+		default: startChoice = schedEditNewStart.getValue();
+		}
+		
+		switch (schedEditNewEnd.getValue()) {
+		case "1:00am": endChoice = "1:00";
+		break;
+		case "2:00am": endChoice = "2:00";
+		break;
+		case "3:00am": endChoice = "3:00";
+		break;
+		case "4:00am": endChoice = "4:00";
+		break;
+		case "5:00am": endChoice = "5:00";
+		break;
+		case "6:00am": endChoice = "6:00";
+		break;
+		case "7:00am": endChoice = "7:00";
+		break;
+		case "8:00am": endChoice = "8:00";
+		break;
+		case "9:00am": endChoice = "9:00";
+		break;
+		case "10:00am": endChoice = "10:00";
+		break;
+		case "11:00am": endChoice = "11:00";
+		break;
+		case "12:00pm": endChoice = "12:00";
+		break;
+		case "1:00pm": endChoice = "13:00";
+		break;
+		case "2:00pm": endChoice = "14:00";
+		break;
+		case "3:00pm": endChoice = "15:00";
+		break;
+		case "4:00pm": endChoice = "16:00";
+		break;
+		case "5:00pm": endChoice = "17:00";
+		break;
+		case "6:00pm": endChoice = "18:00";
+		break;
+		case "7:00pm": endChoice = "19:00";
+		break;
+		case "8:00pm": endChoice = "20:00";
+		break;
+		case "9:00pm": endChoice = "21:00";
+		break;
+		case "10:00pm": endChoice = "22:00";
+		break;
+		case "11:00pm": endChoice = "23:00";
+		break;
+		case "12:00am": endChoice = "24:00";
+		break;
+		default: endChoice = schedEditNewEnd.getValue();
+		}
+		
+		if(startChoice.length()==7) {
+			startChoice = startChoice.substring(0, 4) + ":00";
+		} else if(startChoice.length()==8) {
+			startChoice = startChoice.substring(0, 5) + ":00";
+		}
+		
+		// Get rid of extra values for endChoice and add :00
+		if(endChoice.length()==7) {
+			endChoice = endChoice.substring(0, 4) + ":00";
+		} else if(endChoice.length()==8) {
+			endChoice = endChoice.substring(0, 5) + ":00";
+		}
+		
+		String sqlStatement = "update schedule set shiftStart = '" + startChoice + "', shiftEnd = '" + endChoice + "', comments = '"+ comments + "' where shiftID = " + shiftID;	
+		try {
+			Connection con = DBConnector.getConnection();
+			con.createStatement().executeUpdate(sqlStatement);
+			infoBox("Shift Edited.", null, "Success");
+			// Clear all the doodoo
+		} catch(SQLException e) {
+			infoBox("Make sure shift ID is valid and an Integer.", null, "Failed");
+			e.printStackTrace();
+		}		
+	}
+	
+	public void handleSchedEditDeleteButton(ActionEvent event) {
+		String shiftID = schedEditGetID.getText();
+		String sqlStatement = "delete from schedule where shiftID = " + shiftID;
+		try {
+			Connection con = DBConnector.getConnection();
+			con.createStatement().executeUpdate(sqlStatement);
+			infoBox("Shift Deleted.", null, "Success");
+			// Clear all the doodoo
+		} catch(SQLException e) {
+			infoBox("Make sure shift ID is valid and an Integer.", null, "Failed");
+		}	
+	}
+	
+	public static void infoBox(String infoMessage, String headerText, String title) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setContentText(infoMessage);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.showAndWait();
+    }	
+}

@@ -1,0 +1,36 @@
+package application;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class EmployeeController implements Initializable{
+	// Buttons
+		@FXML
+		private Button btnAddLine;
+		@FXML
+		private Button btnSubmit;
+		@FXML
+		private Button btnRemoveLine;
+		
+		@FXML
+		private TableView<EmployeeModel> tblEmployee;
+		@FXML
+		private TableColumn<EmployeeModel, Number> colEmployeeID;
+		@FXML
+		private TableColumn<EmployeeModel, String> colEmployeeFirst;
+		@FXML
+		private TableColumn<EmployeeModel, String> colEmployeeLast;
+		@FXML
+		private TableColumn<EmployeeModel, Number> colPhoneNumber;
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+			// TODO Auto-generated method stub
+			
+		}
+}

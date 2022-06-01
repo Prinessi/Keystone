@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Keystone/src/application/AddEmployeeController&apos; to &apos;AddEmployeeController.java&apos;" description="Rename resource &apos;AddEmployeeController&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/application/AddEmployeeController" name="AddEmployeeController.java" stamp="1651022484853" updateReferences="true"/>
+</session>

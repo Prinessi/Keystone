@@ -1,0 +1,17 @@
+I did this in eclipse, and I strongly recommend that's what is used for running this to test it yourself.
+I ran into a lot of issues downloading it from myself and opening it in a different workspace, so I 
+will be explaining all of the set up process here.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+Eclipse Set-Up
+1. When launching eclipse and it asks for a workspace, choose 'Use This As Workspace' as the workspace
+2a. To avoid any compatability issues, I put an exact copy of the javafx sdk I used
+2b. When it launches, right click 'keystone' in package explorer go to Java Application>Main>Arguments 
+   and add the VM argument: --module-path "path\to\javafx\lib" --add-modules javafx.controls,javafx.fxml
+3. Under the same tab, go to Dependencies, click 'Modulepath Entries' and click 'Add External JARS' to the right
+4. Add the mysql-connector that is included in the zip file, as well as all jar files in javaFX/lib
+5. You should be able to run the program now.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+SQL Setup
+This should be easier. I included the .sql file in the zipfile. 
+If using XAMPP, you should be able to import the database by clicking import and selecting the database file,
+From there, you can sign in to the program using user: admin and pass: admin.

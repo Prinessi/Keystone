@@ -1,0 +1,68 @@
+package application;
+
+import javafx.scene.control.ComboBox;
+
+public class AddScheduleModel {
+	String day, fName, lName;
+	Integer empID;
+	ComboBox  shiftStart, shiftEnd;
+	
+	// Getters and setters for Inventory Items.
+	public AddScheduleModel(Integer empID, String fName, String lName,String day) {
+		this.empID = empID;
+		this.fName = fName;
+		this.lName = lName;
+		this.shiftStart = new ComboBox();
+		this.shiftEnd = new ComboBox();
+		this.day = day;
+	}
+	
+	public Integer getEmpID() {
+		return empID;
+	}
+	
+	public void setEmpID(Integer empID) {
+		this.empID = empID;
+	}
+	
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+	
+	public String getfName() {
+		return fName;
+	}
+	
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+	
+	public String getlName() {
+		return lName;
+	}
+	
+	public ComboBox getShiftStart() {
+		return shiftStart;
+	}
+	
+	public void setShiftStart(ComboBox shiftStart) {
+		this.shiftStart = shiftStart;
+	}
+	
+	public ComboBox getShiftEnd() {
+		return shiftEnd;
+	}
+	
+	public void setShiftEnd(ComboBox shiftEnd) {
+		this.shiftEnd = shiftEnd;
+	}
+	
+	
+	public String getDay() {
+		return day;
+	}
+	
+	public void setDay(String day) {
+		this.day = day;
+	}
+}

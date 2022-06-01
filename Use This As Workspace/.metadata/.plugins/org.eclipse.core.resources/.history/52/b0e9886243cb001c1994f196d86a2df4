@@ -1,0 +1,45 @@
+package application;
+
+public class InventoryModel {
+	String ITEM_ID, ITEM_DESCRIPTION;
+	Double ITEM_PRICE, inv_amount;
+	
+	// Getters and setters for Inventory Items.
+	public InventoryModel(String ITEM_ID, String ITEM_DESCRIPTION, Double ITEM_PRICE, Double inv_amount) {
+		this.ITEM_ID = ITEM_ID;
+		this.ITEM_DESCRIPTION = ITEM_DESCRIPTION;
+		this.ITEM_PRICE = ITEM_PRICE;
+		this.inv_amount = inv_amount;
+	}
+	public String getId() {
+		return ITEM_ID;
+	}
+	
+	public void setID(String newITEM_ID) {
+		this.ITEM_ID = newITEM_ID;
+	}
+	
+	public String getProduct() {
+		return ITEM_DESCRIPTION;
+	}
+	
+	public void setProdcut(String newITEM_DESCRIPTION) {
+		this.ITEM_DESCRIPTION = newITEM_DESCRIPTION;
+	}
+	
+	public Double getPrice() {
+		return ITEM_PRICE;
+	}
+	
+	public void setPrice(Double newITEM_PRICE) {
+		this.ITEM_PRICE = newITEM_PRICE;
+	}
+	
+	public Double getQuantity() {
+		return inv_amount;
+	}
+	
+	public void setQuantity(Double newinv_amount) {
+		this.inv_amount = newinv_amount;
+	}
+}
